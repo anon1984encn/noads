@@ -1,5 +1,5 @@
 #!name=广告拦截&净化合集
-#!desc=支持约511款APP/小程序，针对部分APP和小程序广告进行拦截
+#!desc=针对部分APP和小程序广告进行拦截，支持约511款APP/小程序
 #!author=奶思[https://github.com/fmz200]
 #!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/AdblockPlus.png
 #!homepage=https://github.com/fmz200/wool_scripts
@@ -929,23 +929,23 @@ http:\/\/ad\.myfriday\.cn\/d\/json\/1\.1 reject
 # >>>>>>>>>>>>>>> ✅ G ✅ <<<<<<<<<<<<<<
 # > 光大银行
 # hostname = mobile.cebbank.com, yghsh.cebbank.com
-^https?:\/\/mobile\.cebbank\.com\/cebclient\/ClientNoticeList reject-200
+#^https?:\/\/mobile\.cebbank\.com\/cebclient\/ClientNoticeList reject-200
 # > 光大银行 阳光惠生活
-^https?:\/\/yghsh\.cebbank\.com\/static\/picture\/.*.jpg reject-200
+#^https?:\/\/yghsh\.cebbank\.com\/static\/picture\/.*.jpg reject-200
 
 # > 工商银行
 # hostname = v.icbc.com.cn
 # 如开启可自行添加主机名
-^https?:\/\/v\.icbc\.com\.cn\/userfiles\/Resources\/WAP\/advertisement\/ reject-200
+#^https?:\/\/v\.icbc\.com\.cn\/userfiles\/Resources\/WAP\/advertisement\/ reject-200
 
 # > 工银E生活
 # hostname = pv.elife.icbc.com.cn
-^https?:\/\/pv\.elife\.icbc\.com\.cn\/OFSTPV\/utm\.gif reject-200
+#^https?:\/\/pv\.elife\.icbc\.com\.cn\/OFSTPV\/utm\.gif reject-200
 
 # > 工银e生活小程序
 # hostname = elife.icbc.com.cn
 # 如开启可自行添加主机名
-^https?:\/\/elife\.icbc\.com\.cn\/OFSTNEWBASE\/floorinfo\/getMantlePages\.do reject-200
+#^https?:\/\/elife\.icbc\.com\.cn\/OFSTNEWBASE\/floorinfo\/getMantlePages\.do reject-200
 
 # > 广发银行
 # hostname = static.95508.com, mps.95508.com
