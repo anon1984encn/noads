@@ -2233,8 +2233,8 @@ https://api.rr.tv/storage/business/rootName/app/homePage\?dataType=JSON reject-d
 # >>>>>>>>>>>>>>> ✅ S ✅ <<<<<<<<<<<<<<
 # > spotify
 # hostname = spclient.wg.spotify.com, api*.musical.ly
-^https?:\/\/spclient\.wg\.spotify\.com\/(ad-logic|ads|.+ad_slot|.+banners|.+canvases|.+cards|.+crashlytics|.+doubleclick.net|.+enabled-tracks|.+event|.+sponsored|.+promoted|.+promoted_offer) reject-img
-^https?:\/\/api\d?\.musical\.ly\/api\/ad\/ reject-img
+# ^https?:\/\/spclient\.wg\.spotify\.com\/(ad-logic|ads|.+ad_slot|.+banners|.+canvases|.+cards|.+crashlytics|.+doubleclick.net|.+enabled-tracks|.+event|.+sponsored|.+promoted|.+promoted_offer) reject-img
+# ^https?:\/\/api\d?\.musical\.ly\/api\/ad\/ reject-img
 
 # > Soul
 # hostname = 47.110.187.87, ssp.soulapp.cn, chat-live.soulapp.cn, api-account.soulapp.cn, api-global.soulapp.me, api-a.soulapp.cn, api-pay.soulapp.cn, gateway-mobile-gray.soulapp.cn, api-chat.soulapp.cn, post.soulapp.cn, api-user.soulapp.cn, ssp.soulapp.cn
