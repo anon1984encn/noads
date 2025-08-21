@@ -2689,7 +2689,7 @@ https://apis.lifeweek.com.cn/api/baseConfig/getIosNewConfig reject
 # 开屏广告
 ^https?:\/\/wx\.17u\.cn\/xcxhomeapi\/((aggregator\/index)|(home\/(screen|banner|converge)))$ reject
 ^https?:\/\/wx\.17u\.cn\/crapi\/query\/getAdImgUrlByCode reject-dict
-^https:\/\/tcmobileapi\.17usoft\.com\/appindexnew\/index\/openscreen reject-dict
+# ^https:\/\/tcmobileapi\.17usoft\.com\/appindexnew\/index\/openscreen reject-dict
 # ^https:\/\/tcmobileapi\.17usoft\.com\/appindexnew\/index\/getindexlayoutcelllist reject-dict
 # ^https:\/\/tcmobileapi\.17usoft\.com\/appindexnew\/index\/gethotrecommend reject-dict
 # 景点界面轮播图和右下角悬浮窗
