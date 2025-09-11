@@ -401,10 +401,6 @@ host, dispatcher.360in.com, reject
 host, ad.360in.com, reject
 host, exp.360in.com, reject
 
-# > 车来乐
-host, atrace.chelaile.net.cn, reject
-host, logs.chelaile.net.cn, reject
-
 # > 创维
 host-suffix, hoisin.coocaa.com, reject
 host-suffix, hoisin.coocaatv.com, reject
@@ -669,7 +665,7 @@ host, o2o-ad-log-gateway.alibaba.com, reject
 
 
 # >>>>>>>>>>>>>>> ✅ K ✅ <<<<<<<<<<<<<<
-# > keep
+# > Keep
 host, apm.gotokeep.com, reject
 host, kad.gotokeep.com, reject
 host, hc-ssp.sm.cn, reject
@@ -1645,7 +1641,7 @@ host, applog.zijieapi.com, reject
 host-suffix, -normal-lq.zijieapi.com, reject
 
 
-# >>>>>>>>>>>>>>> ✅ 其他广告 ✅ <<<<<<<<<<<<<<
+# >>>>>>>>>>>>>>> ✅ 其他 ✅ <<<<<<<<<<<<<<
 host-keyword, 112wan, reject
 host-keyword, 789htbet, reject
 host-suffix, XiaoQiang, reject
@@ -2628,8 +2624,6 @@ host-suffix, cnnic.net.cn, reject
 host-suffix, funshion.net.cn, reject
 host-suffix, jnsz.net.cn, reject
 host-suffix, a1.0s.net.cn, reject
-host-suffix, atrace.chelaile.net.cn, reject
-host-suffix, logs.chelaile.net.cn, reject
 host-suffix, pb.funshion.net.cn, reject
 host-suffix, f.qcwzx.net.cn, reject
 host-suffix, dimg1.sz.net.cn, reject

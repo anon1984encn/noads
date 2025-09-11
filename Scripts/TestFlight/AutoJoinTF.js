@@ -1,7 +1,7 @@
 /**
  @author fmz200
  @function 获取自动加入TF需要的信息，修改数据存储形式，支持大部分代理工具包括 QX，Loon，Surge，Egern，Stash，ShadowRocket，青龙
- @date 2025-06-19 21:00:00
+ @date 2025-09-06 20:00:00
  @quote https://raw.githubusercontent.com/DecoAri/JavaScript/main/Surge/Auto_join_TF.js
 
  具体使用步骤
@@ -29,16 +29,25 @@ let TF_header = isNode ? process.env["fmz200_TF_header"] : $.getdata("fmz200_TF_
   }
   TF_header = JSON.parse(TF_header);
   const appIds = TF_APP_ID.split(',');
-  for await (const appId of appIds) {
-    console.log("===================");
-    await autoPost(appId.trim());
+  let counter = 1;
+  for await (const appIdInfo of appIds) {
+    console.log(`========= [${counter}/${appIds.length}] ==========`);
+    // 随机延迟，单位：秒
+    await randomDelay(10);
+    // 执行
+    let appId = appIdInfo;
+    if (appIdInfo.includes("#")) {
+      appId = appIdInfo.split("#")[0].trim();
+    }
+    await autoPost(appId, appIdInfo);
+    counter++;
   }
 
   if (isNode) await sendMsg($.nodeNotifyMsg.join("\n"), "");
   $.done();
 })();
 
-function autoPost(appId) {
+function autoPost(appId, appIdInfo) {
   const url = `https://testflight.apple.com/v3/accounts/${TF_header.key}/ru/${appId}`;
   const header = {
     'X-Session-Id': `${TF_header.session_id}`,
@@ -59,23 +68,23 @@ function autoPost(appId) {
       if (error == null) {
         if (resp.status === 404) {
           updateData(TF_APP_ID, appId);
-          console.log(`[${appId}]不存在该TestFlight，已自动删除该APP_ID`);
+          console.log(`[${appIdInfo}]不存在该TestFlight，已自动删除该APP_ID`);
           if (isNode) {
-            $.nodeNotifyMsg.push(`[${appId}]不存在该TestFlight，已自动删除该APP_ID`);
+            $.nodeNotifyMsg.push(`[${appIdInfo}]不存在该TestFlight，已自动删除该APP_ID`);
           } else {
-            await sendMsg(`[${appId}]不存在该TestFlight，已自动删除该APP_ID`, "");
+            await sendMsg(`[${appIdInfo}]不存在该TestFlight，已自动删除该APP_ID`, "");
           }
           resolve();
         } else if (resp.status === 401) {
-          console.log(`[${appId}]请求异常，可能是令牌过期或者定时任务间隔太短[建议3分钟以上]，尝试重新加入`);
+          console.log(`[${appIdInfo}]请求异常，可能是令牌过期或者定时任务间隔太短[建议3分钟以上]，尝试重新加入`);
           resolve();
         } else {
           const jsonData = JSON.parse(data);
           if (jsonData.data == null) {
-            console.log(`[${appId}]返回：${jsonData.messages[0]?.message}`);
+            console.log(`[${appIdInfo}]返回：${jsonData.messages[0]?.message}`);
             resolve();
           } else if (jsonData.data.status === 'FULL') {
-            console.log(jsonData.data.app.name + ' ' + appId + ' ' + jsonData.data.message);
+            console.log(jsonData.data.app.name + ' ' + appIdInfo + ' ' + jsonData.data.message);
             resolve();
           } else {
             $.post({url: url + '/accept', headers: header}, async function (error, resp, body) {
@@ -97,15 +106,15 @@ function autoPost(appId) {
         }
       } else {
         if (error.includes('request timed out')) {
-          console.log(appId + ' ' + error);
+          console.log(appIdInfo + ' ' + error);
           resolve();
         } else {
           if (isNode) {
-            $.nodeNotifyMsg.push(`自动加入TF[${appId}]异常`);
+            $.nodeNotifyMsg.push(`自动加入TF[${appIdInfo}]异常`);
           } else {
-            await sendMsg(`自动加入TF[${appId}]异常`, "");
+            await sendMsg(`自动加入TF[${appIdInfo}]异常`, "");
           }
-          console.log(appId + ' ' + error);
+          console.log(appIdInfo + ' ' + error);
           resolve();
         }
       }
@@ -117,10 +126,32 @@ function updateData(ids, appId) {
   if (isNode) {
     console.log("TODO 操作node环境变量");
   } else {
-    let ids = $.getdata("fmz200_TF_APP_ID").split(',').filter(ids => ids.trim() !== appId);
+    const ids = $.getdata("fmz200_TF_APP_ID").split(',').filter(ids => ids.trim() !== appId);
+    console.log(`TF_APP_ID即将更新为：${ids}`);
     $.setdata(ids.toString(), "fmz200_TF_APP_ID");
   }
 }
+
+/**
+ * 在一个基础延迟时间上下3秒内随机延迟
+ * @param {number} baseDelaySeconds - 基础延迟时间（秒）
+ */
+function randomDelay(baseDelaySeconds) {
+  // 计算最小和最大延迟时间
+  const minDelay = (baseDelaySeconds - 3) * 1000;
+  const maxDelay = (baseDelaySeconds + 3) * 1000;
+
+  // 生成一个在 minDelay 和 maxDelay 之间的随机毫秒数
+  const delayMilliseconds = Math.floor(Math.random() * (maxDelay - minDelay + 1)) + minDelay;
+
+  // 确保延迟时间不为负数
+  const finalDelay = Math.max(0, delayMilliseconds);
+
+  console.log(`将在 ${finalDelay / 1000} 秒后执行...`);
+
+  return new Promise(resolve => setTimeout(resolve, finalDelay));
+}
+
 
 // API start
 async function sendMsg(desc, opts) { $.isNode() ? await notify.sendNotify($.name, desc) : $.msg($.name, $.subTitle || "", desc, opts) }
