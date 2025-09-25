@@ -4,14 +4,14 @@
 #!homepage=https://github.com/fmz200/wool_scripts
 #!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/gif/naisi-01.gif
 #!raw-url=https://github.com/fmz200/wool_scripts/raw/main/Loon/plugin/split/partF/FaXianJingCai.lpx
-#!tg-group=https://t.me/lanjieguanggao
-#!date=2025-08-21 22:37:00
+#!tg-channel=https://t.me/inaisi
+#!date=2025-09-24 21:46:58
 #############################################
 
 [Rewrite]
 # 开屏广告
 ^https?:\/\/static\.95508\.com\/mmg\/images\/ads\/.+\/(.+1125?.+2436|.+%.+%|.+_.+_) reject-dict
-^https?:\/\/static\.95508\.com\/mmg\/ciop\/sysabbr\/cmep\/images\/apppopupads reject-dict
+^https?:\/\/static\.95508\.com\/mmg\/ciop\/sysabbr\/cmep\/images\/(apppopupads|popupads) reject-dict
 
 
 [MITM]

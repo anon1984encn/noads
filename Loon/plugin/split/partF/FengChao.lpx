@@ -4,13 +4,14 @@
 #!homepage=https://github.com/fmz200/wool_scripts
 #!icon=https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/gif/naisi-01.gif
 #!raw-url=https://github.com/fmz200/wool_scripts/raw/main/Loon/plugin/split/partF/FengChao.lpx
-#!tg-group=https://t.me/lanjieguanggao
-#!date=2025-08-21 22:37:00
+#!tg-channel=https://t.me/inaisi
+#!date=2025-09-24 21:46:58
 #############################################
 
 [Rewrite]
 ^https:\/\/dsp\.fcbox\.com\/adSearch\/get\? reject
 ^https:\/\/external\.fcbox\.com\/wxgw\/post\/suggestion\/query reject
+^https:\/\/rtm\.fcbox\.com\/rtsWeb\/api\/resource\/ad\/queryAd reject
 # 已无法MITM
 ^https?:\/\/consumer\.fcbox\.com\/v\d\/ad\/ reject
 
