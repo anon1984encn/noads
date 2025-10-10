@@ -195,7 +195,7 @@ AND,((DOMAIN-KEYWORD,api),(DOMAIN-KEYWORD,-dual-event-),(DOMAIN-SUFFIX,pangle.io
 AND,((DOMAIN-KEYWORD,api),(DOMAIN-KEYWORD,pangolin),(DOMAIN-SUFFIX,sgsnssdk.com)),REJECT
 AND,((DOMAIN-KEYWORD,ads),(DOMAIN-KEYWORD,-normal-lq),(DOMAIN-SUFFIX,zijieapi.com)),REJECT
 URL-REGEX,"^http:\/\/p\d+-be-pack-sign\.pglstatp-toutiao\.com\/(ad-app-package|web\.business\.image)\/",REJECT
-DOMAIN,mon.zijieapi.com,REJECT
+#DOMAIN,mon.zijieapi.com,REJECT
 DOMAIN,lf-ad-ies.bytecdn.cn,REJECT
 #DOMAIN,i.snssdk.com,REJECT
 #DOMAIN,is.snssdk.com,REJECT
@@ -371,7 +371,7 @@ AND, ((DOMAIN-KEYWORD, api), (DOMAIN-KEYWORD, -dual-event-), (DOMAIN-SUFFIX, pan
 AND, ((DOMAIN-KEYWORD, api), (DOMAIN-KEYWORD, pangolin), (DOMAIN-SUFFIX, sgsnssdk.com)), REJECT
 AND, ((DOMAIN-KEYWORD, ads), (DOMAIN-KEYWORD, -normal-lq), (DOMAIN-SUFFIX, zijieapi.com)), REJECT
 URL-REGEX, ^http:\/\/p\d+-be-pack-sign\.pglstatp-toutiao\.com\/(ad-app-package|web\.business\.image)\/, REJECT
-DOMAIN, mon.zijieapi.com, REJECT
+#DOMAIN, mon.zijieapi.com, REJECT
 #DOMAIN, i.snssdk.com, REJECT
 #DOMAIN, is.snssdk.com, REJECT
 DOMAIN, bds.snssdk.com, REJECT
@@ -2094,9 +2094,9 @@ http:\/\/dili.sqcosmos.com\/jiekou\/endpage\/ad reject-dict
 # > 农业银行
 # hostname = midc.cdn-static.abchina.com.cn, enjoy.cdn-static.abchina.com
 # ^https?:\/\/midc\.cdn-static\.abchina\.com\.cn\/distributecenterimg\/file\/download\/(?!bbc2|f015|1655|0992|4678|a194|d8e2|c513|e51c|0ee1|166e|05ca|c882|d5b8|22ed|a0dc|a55a|6f89|3bf9|3c71|52ec|5b62|ve7a|001c|923d|accf|4a10|0bd7|be7a|5b62|5dd6|1f24|006c|775d|bd02|b983|5251|806b|d119|db14|43c9|41d3|8570|2c10|85ea|1435|814e|f422|aec7|738c|d7c8|0538|02b4|fd20|7647|f6ef|07c5|885b|e4cb|685b|30aa|c23b|9603|f27f|eaf8|8011|a5eb|409d|724c|3f2a|e07f|6744|60a6|158c|8ce3) reject-dict
-^https?:\/\/midc\.cdn-static\.abchina\.com\.cn\/distributecenterimg\/file\/download\/(ed64|74b5) reject
-^https?:\/\/enjoy\.cdn-static\.abchina\.com\/yx-engine-web\/file\/download\/(?!7dc2|fe96|cea3|06a8|1b11|d57b|6918|61db|2d58|aa23|) reject-200
-^https?:\/\/firefly\.abchina\.com\.cn\/firefly-collection\/Collect reject-200
+# ^https?:\/\/midc\.cdn-static\.abchina\.com\.cn\/distributecenterimg\/file\/download\/(ed64|74b5) reject
+# ^https?:\/\/enjoy\.cdn-static\.abchina\.com\/yx-engine-web\/file\/download\/(?!7dc2|fe96|cea3|06a8|1b11|d57b|6918|61db|2d58|aa23|) reject-200
+# ^https?:\/\/firefly\.abchina\.com\.cn\/firefly-collection\/Collect reject-200
 
 # > 奈菲影视
 # hostname = www.nfmovies.com
@@ -2750,11 +2750,11 @@ https://apis.lifeweek.com.cn/api/baseConfig/getIosNewConfig reject
 # > 同程旅行
 # hostname = *.ly.com, *.17usoft.com, *.17u.cn, mobilehotelapi.elong.com, quic-tcmapi.elong.com
 # 开屏广告
-^https?:\/\/wx\.17u\.cn\/xcxhomeapi\/((aggregator\/index)|(home\/(screen|banner|converge)))$ reject
+# ^https?:\/\/wx\.17u\.cn\/xcxhomeapi\/((aggregator\/index)|(home\/(screen|banner|converge)))$ reject
 ^https?:\/\/wx\.17u\.cn\/crapi\/query\/getAdImgUrlByCode reject-dict
 ^https:\/\/tcmobileapi\.17usoft\.com\/appindexnew\/index\/openscreen reject-dict
-^https:\/\/tcmobileapi\.17usoft\.com\/appindexnew\/index\/getindexlayoutcelllist reject-dict
-^https:\/\/tcmobileapi\.17usoft\.com\/appindexnew\/index\/gethotrecommend reject-dict
+# ^https:\/\/tcmobileapi\.17usoft\.com\/appindexnew\/index\/getindexlayoutcelllist reject-dict
+# ^https:\/\/tcmobileapi\.17usoft\.com\/appindexnew\/index\/gethotrecommend reject-dict
 # 景点界面轮播图和右下角悬浮窗
 ^https:\/\/mobileapi\.ly\.com\/wlfrontend\/app\/scenicMain reject-dict
 # 租车界面 广告
