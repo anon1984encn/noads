@@ -635,7 +635,6 @@ host-suffix, su.bdstatic.com, reject
 host-suffix, zz.bdstatic.com, reject
 host-suffix, bcebos.com, reject
 host-suffix, baidustatic.com, reject
-host-suffix, bdstatic.com, reject
 host-suffix, duapps.com, reject
 
 # > 百度地图
@@ -3276,7 +3275,7 @@ host-suffix, log.aliyuncs.com, reject
 host-suffix, zlsdk.1rtb.net, reject
 host-suffix, cdntips.net, reject
 host-suffix, tfogc.com, reject
-host-keyword, volc, reject
+#host-keyword, volc, reject
 host-keyword, umeng, reject
 # Ad-Stir
 host-suffix, ad-stir.com, reject 
