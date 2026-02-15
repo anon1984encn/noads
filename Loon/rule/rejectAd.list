@@ -9,7 +9,7 @@
 #!system = iOS, iPadOS
 #!system_version =
 #!loon_version =
-#!date=2025-11-13 16:25:00
+#!date=2025-12-25 20:30:00
 #!support=约9392行
 #!proxy-select=REJECT
 #############################################
@@ -2105,7 +2105,7 @@ DOMAIN-SUFFIX,gum.criteo.com
 DOMAIN-SUFFIX,smaato.net
 DOMAIN-SUFFIX,spadsync.com
 DOMAIN-SUFFIX,ads.inmobi.com
-DOMAIN-SUFFIX,akamaized.net
+#DOMAIN-SUFFIX,akamaized.net
 DOMAIN-SUFFIX,spadsync.com
 DOMAIN-SUFFIX,tpc.googlesyndication.com
 DOMAIN-SUFFIX,googleadsserving.cn
@@ -2625,6 +2625,8 @@ DOMAIN-KEYWORD,mpos-pic.helipay.com
 DOMAIN, mistat.xiaomi.com
 
 # > 晓晓优选
+DOMAIN-SUFFIX, adintl.cn
+DOMAIN-SUFFIX, zhangyuyidong.cn
 DOMAIN-SUFFIX, 1sapp.com
 DOMAIN-SUFFIX, aiclk.com
 DOMAIN-SUFFIX, adbiding.com
